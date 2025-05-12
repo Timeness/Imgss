@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white">
+<head>
+  <meta charset="UTF-8">
+  <title>Image URL Generator</title>
+  <script src="/static/script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4">
+  <h1 class="text-3xl font-bold mb-6">Upload Image to Get URL</h1>
+  <form id="uploadForm" class="w-full max-w-sm">
+    <input type="file" id="imageFile" class="mb-4 block w-full bg-gray-800 p-2" required />
+    <button type="submit" class="bg-green-600 px-4 py-2 rounded hover:bg-green-700">Upload</button>
+  </form>
+  <div id="result" class="mt-6 text-center"></div>
+</body>
+</html>
