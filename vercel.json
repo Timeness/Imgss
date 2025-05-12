@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/upload", "methods": ["POST"], "dest": "backend/main.py" },
+    { "src": "/images/(.*)", "dest": "backend/main.py" },
+    { "src": "/", "dest": "backend/main.py" },
+    { "src": "/static/(.*)", "dest": "backend/static/$1" }
+  ]
+}
