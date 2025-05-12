@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image URL Generator</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    input[type="file"] { margin-top: 20px; }
+    #link { margin-top: 20px; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Upload an Image</h1>
+  <input type="file" id="fileInput" />
+  <button onclick="upload()">Upload</button>
+  <a id="link" target="_blank"></a>
+
+  <script>
+    async function upload() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) return alert("Select an image first!");
+
+      const formData = new FormData();
+      formData.append('image', file);
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      document.getElementById('link').textContent = data.imageUrl;
+      document.getElementById('link').href = data.imageUrl;
+    }
+  </script>
+</body>
+</html>
