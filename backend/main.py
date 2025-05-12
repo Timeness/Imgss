@@ -3,7 +3,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import uuid, os
-from config import UPLOAD_DIR, BASE_URL
+from backend.config import UPLOAD_DIR, BASE_URL
 
 app = FastAPI()
 
